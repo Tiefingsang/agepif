@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
-
-<!-- Mirrored from faynixlab.com/homy/index-one.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Mar 2026 16:47:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> HOMY | Responsive Real Estate HTML Template</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'AGEPIF - Agence Immobilière de Prestige en Côte d\'Ivoire')</title>
+
     <!-- Bootstrap -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -27,36 +27,32 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animations.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/morphext.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.theme.default.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mb.YTPlayer.min.css') }}">
 
-    <!-- Main stylesheet  -->
+    <!-- Main stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <!-- Responsive stylesheet  -->
+    <!-- Responsive stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+
     <!-- Favicon -->
     <link href="{{ asset('assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('assets/images/apple-icon.png') }}" rel="icon" type="image/png">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    @stack('styles')
 </head>
 
 <body>
     <div id="preloader"></div>
-    <!-- Main Heder Start -->
 
+    <!-- Main Header Start -->
     @include('front.layouts.partials.nav')
-    <!-- Main Heder End -->
+    <!-- Main Header End -->
 
-    <!-- Main Slider start -->
-    @yield('content')
-    <!-- Newsletter end -->
+    <!-- Main Content Start -->
+    <main>
+        @yield('content')
+    </main>
+    <!-- Main Content End -->
 
     <!-- Brand start from here -->
     <section class="at-brand-sec">
@@ -65,33 +61,22 @@
                 <div class="col-md-12">
                     <div class="brand-carousel" data-slick='{"slidesToShow": 6, "slidesToScroll": 1}'>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="">
-                            </a>
+                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="">
+                            <a href="#"><img src="{{ asset('assets/images/brand/2.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="">
+                            <a href="#"><img src="{{ asset('assets/images/brand/3.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="">
+                            <a href="#"><img src="{{ asset('assets/images/brand/4.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="images/brand/5.jpg" alt="">
-                            </a>
+                            <a href="#"><img src="{{ asset('assets/images/brand/5.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="images/brand/6.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="#"><img src="images/brand/1.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="#"><img src="images/brand/2.jpg" alt="">
-                            </a>
+                            <a href="#"><img src="{{ asset('assets/images/brand/6.jpg') }}" alt="Partenaire"></a>
                         </div>
                     </div>
                 </div>
@@ -102,8 +87,7 @@
 
     <!-- footer start from here -->
     @include('front.layouts.partials.footer')
-    <!-- Copyright end -->
-
+    <!-- footer end -->
 
     <!-- jQuery -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -122,7 +106,7 @@
     <script src="{{ asset('assets/js/slick.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-scrolltofixed-min.js') }}"></script>
-    <script src="{{ asset('assets/js/morphext.min.js')}}"></script>
+    <script src="{{ asset('assets/js/morphext.min.js') }}"></script>
     <script src="{{ asset('assets/js/dyscrollup.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.ripples.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
@@ -131,8 +115,7 @@
     <!-- Main Custom JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
+    @stack('scripts')
 </body>
-
-
 
 </html>

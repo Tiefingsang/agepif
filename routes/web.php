@@ -47,6 +47,10 @@ Route::prefix('location')->name('rental-request.')->group(function () {
     Route::post('/', [RentalRequestController::class, 'store'])->name('store');
 });
 
+// Services
+Route::get('/services', function () {
+    return view('front.services');})->name('services');
+
 // Formulaire de contact
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::post('/contact/property/{propertyId}', [ContactController::class, 'propertyInquiry'])->name('contact.property');
