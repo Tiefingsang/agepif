@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Nos biens immobiliers - AGEPIF')
+@section('title', 'Nos biens immobiliers - AGEPIF Mali')
 
 @section('content')
 <!-- Inner page heading start -->
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF">
+                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF Mali">
             </div>
         </div>
     </div>
@@ -52,10 +52,12 @@
                             <div class="col-lg-2 col-md-4 col-sm-6">
                                 <select name="city" class="form-control">
                                     <option value="">Ville</option>
-                                    <option value="Abidjan" {{ request('city') == 'Abidjan' ? 'selected' : '' }}>Abidjan</option>
-                                    <option value="Yamoussoukro" {{ request('city') == 'Yamoussoukro' ? 'selected' : '' }}>Yamoussoukro</option>
-                                    <option value="Bouaké" {{ request('city') == 'Bouaké' ? 'selected' : '' }}>Bouaké</option>
-                                    <option value="San Pedro" {{ request('city') == 'San Pedro' ? 'selected' : '' }}>San Pedro</option>
+                                    <option value="Bamako" {{ request('city') == 'Bamako' ? 'selected' : '' }}>Bamako</option>
+                                    <option value="Kayes" {{ request('city') == 'Kayes' ? 'selected' : '' }}>Kayes</option>
+                                    <option value="Sikasso" {{ request('city') == 'Sikasso' ? 'selected' : '' }}>Sikasso</option>
+                                    <option value="Ségou" {{ request('city') == 'Ségou' ? 'selected' : '' }}>Ségou</option>
+                                    <option value="Mopti" {{ request('city') == 'Mopti' ? 'selected' : '' }}>Mopti</option>
+                                    <option value="Gao" {{ request('city') == 'Gao' ? 'selected' : '' }}>Gao</option>
                                 </select>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6">
@@ -106,7 +108,7 @@
                     </div>
                     <div class="at-property-location">
                         <h4><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('properties.show', $property->slug) }}">{{ Str::limit($property->title, 25) }}</a></h4>
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $property->city }}, {{ $property->neighborhood ?? 'Côte d\'Ivoire' }}</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $property->city }}, {{ $property->neighborhood ?? 'Mali' }}</p>
                     </div>
                 </div>
             </div>
@@ -180,6 +182,7 @@
         background: #ffd700;
         color: #1a2a3a;
         font-weight: 600;
+        transition: all 0.3s ease;
     }
     .at-filter-box .btn:hover {
         background: #1a2a3a;

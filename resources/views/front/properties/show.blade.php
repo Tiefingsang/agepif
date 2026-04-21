@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', $property->title . ' - AGEPIF')
+@section('title', $property->title . ' - AGEPIF Mali')
 
 @section('content')
 <!-- Inner page heading start -->
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF">
+                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF Mali">
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                         <div class="at-heading-under-line">
                             <div class="at-heading-inside-line"></div>
                         </div>
-                        <p>Découvrez les caractéristiques détaillées de ce bien immobilier</p>
+                        <p>Découvrez les caractéristiques détaillées de ce bien immobilier au Mali</p>
                     </div>
 
                     <div class="row at-property-features">
@@ -119,43 +119,16 @@
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <h4>Localisation</h4>
-                            <p><i class="fa fa-map-marker"></i> {{ $property->address }}, {{ $property->city }}, {{ $property->country }}</p>
+                            <p><i class="fa fa-map-marker"></i> {{ $property->address }}, {{ $property->city }}, {{ $property->country ?? 'Mali' }}</p>
                             <div class="at-property-map">
                                 <iframe
-                                    src="https://maps.google.com/maps?q={{ urlencode($property->address . ', ' . $property->city) }}&output=embed"
+                                    src="https://maps.google.com/maps?q={{ urlencode($property->address . ', ' . $property->city . ', Mali') }}&output=embed"
                                     width="100%"
                                     height="300"
                                     style="border:0;"
                                     allowfullscreen=""
                                     loading="lazy">
                                 </iframe>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Comment Section -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="at-comment-row">
-                                <h3><a href="#">Avis clients</a></h3>
-                                <div class="at-comment-item">
-                                    <a class="pull-right" href="#">
-                                        <i class="fa fa-reply" aria-hidden="true"></i>
-                                    </a>
-                                    <img src="{{ asset('assets/images/comment/1.jpg') }}" alt="">
-                                    <h5>Jean Kouadio</h5>
-                                    <span>Client satisfait</span>
-                                    <p>Très bonne agence, professionnel et à l'écoute. Je recommande vivement AGEPIF pour vos projets immobiliers.</p>
-                                </div>
-                                <div class="at-comment-item ms-4">
-                                    <a class="pull-right" href="#">
-                                        <i class="fa fa-reply" aria-hidden="true"></i>
-                                    </a>
-                                    <img src="{{ asset('assets/images/comment/2.jpg') }}" alt="">
-                                    <h5>Marie Konan</h5>
-                                    <span>Propriétaire</span>
-                                    <p>J'ai confié la vente de ma maison à AGEPIF, tout s'est passé parfaitement. Merci pour votre professionnalisme.</p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,10 +174,10 @@
                                 <p class="text-muted">/ mois</p>
                             @endif
                             <hr>
-                            <a href="https://wa.me/22501234567?text=Je suis intéressé par le bien: {{ $property->title }}" class="btn btn-success btn-block" target="_blank">
+                            <a href="https://wa.me/22379131395?text=Je suis intéressé par le bien: {{ $property->title }}" class="btn btn-success btn-block" target="_blank">
                                 <i class="fa fa-whatsapp"></i> Contacter via WhatsApp
                             </a>
-                            <a href="tel:+22501234567" class="btn btn-primary btn-block mt-2">
+                            <a href="tel:+22379131395" class="btn btn-primary btn-block mt-2">
                                 <i class="fa fa-phone"></i> Appeler maintenant
                             </a>
                         </div>
@@ -238,7 +211,7 @@
                         </ul>
                     </div>
 
-                    <!-- Latest News -->
+                    <!-- Latest Properties -->
                     <div class="at-latest-news">
                         <h3 class="at-sedebar-title">Derniers biens</h3>
                         <ul>
@@ -261,7 +234,7 @@
                         </ul>
                     </div>
 
-                    <!-- Tags -->
+                    <!-- Tags populaires -->
                     <div class="at-sidebar-tags">
                         <h3 class="at-sedebar-title">Tags populaires</h3>
                         <a href="{{ route('properties.index', ['type' => 'house']) }}">Maisons</a>
@@ -269,14 +242,15 @@
                         <a href="{{ route('properties.index', ['type' => 'land']) }}">Terrains</a>
                         <a href="{{ route('properties.index', ['transaction_type' => 'sale']) }}">Vente</a>
                         <a href="{{ route('properties.index', ['transaction_type' => 'rent']) }}">Location</a>
-                        <a href="{{ route('properties.index', ['city' => 'Abidjan']) }}">Abidjan</a>
-                        <a href="{{ route('properties.index', ['city' => 'Yamoussoukro']) }}">Yamoussoukro</a>
+                        <a href="{{ route('properties.index', ['city' => 'Bamako']) }}">Bamako</a>
+                        <a href="{{ route('properties.index', ['city' => 'Kayes']) }}">Kayes</a>
+                        <a href="{{ route('properties.index', ['city' => 'Sikasso']) }}">Sikasso</a>
                     </div>
 
-                    <!-- Preview -->
+                    <!-- AGEPIF Preview -->
                     <div class="at-preview">
-                        <h3 class="at-sedebar-title">AGEPIF</h3>
-                        <img src="{{ asset('assets/images/property/preview.jpg') }}" alt="AGEPIF Immobilier">
+                        <h3 class="at-sedebar-title">AGEPIF Mali</h3>
+                        <img src="{{ asset('assets/images/property/preview.jpg') }}" alt="AGEPIF Immobilier Mali">
                     </div>
                 </div>
             </div>
@@ -332,33 +306,6 @@
         border-radius: 8px;
         overflow: hidden;
     }
-    .at-comment-item {
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #f8f9fa;
-        border-radius: 8px;
-    }
-    .at-comment-item img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        float: left;
-        margin-right: 15px;
-    }
-    .at-comment-item h5 {
-        margin-bottom: 5px;
-    }
-    .at-comment-item span {
-        color: #666;
-        font-size: 12px;
-    }
-    .at-comment-item .pull-right {
-        float: right;
-        color: #ffd700;
-    }
-    .ms-4 {
-        margin-left: 40px;
-    }
     .btn-block {
         width: 100%;
         margin-bottom: 10px;
@@ -382,6 +329,24 @@
         font-size: 12px;
         color: #ffd700;
         margin: 0;
+    }
+    .at-sidebar-tags a {
+        display: inline-block;
+        padding: 5px 12px;
+        margin: 0 5px 8px 0;
+        background: #f8f9fa;
+        border-radius: 3px;
+        color: #333;
+        font-size: 12px;
+        transition: all 0.3s ease;
+    }
+    .at-sidebar-tags a:hover {
+        background: #ffd700;
+        color: #1a2a3a;
+    }
+    .at-preview img {
+        width: 100%;
+        border-radius: 8px;
     }
 </style>
 @endpush

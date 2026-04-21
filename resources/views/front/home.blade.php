@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'AGEPIF - Agence Immobilière de Prestige en Côte d\'Ivoire')
+@section('title', 'AGEPIF - Agence de Gestion du Patrimoine Immobilier et Foncier - Bamako, Mali')
 
 @section('content')
 <!-- Main Slider start -->
@@ -10,7 +10,7 @@
             @foreach($slides as $slide)
             <li data-thumb="{{ Storage::url($slide->image) }}">
                 <img src="{{ Storage::url($slide->image) }}" alt="{{ $slide->title }}">
-                <p class="flex-caption">{{ $slide->title }} <span>{{ $slide->subtitle ?? 'AGEPIF' }}</span></p>
+                <p class="flex-caption">{{ $slide->title }} <span>{{ $slide->subtitle ?? 'AGEPIF Mali' }}</span></p>
             </li>
             @endforeach
         </ul>
@@ -27,12 +27,13 @@
                     <div class="at-col-default-mar">
                         <select name="city">
                             <option value="" selected>Localisation</option>
-                            <option value="Abidjan">Abidjan</option>
-                            <option value="Yamoussoukro">Yamoussoukro</option>
-                            <option value="Bouaké">Bouaké</option>
-                            <option value="San Pedro">San Pedro</option>
-                            <option value="Daloa">Daloa</option>
-                            <option value="Korhogo">Korhogo</option>
+                            <option value="Bamako">Bamako</option>
+                            <option value="Kayes">Kayes</option>
+                            <option value="Sikasso">Sikasso</option>
+                            <option value="Ségou">Ségou</option>
+                            <option value="Mopti">Mopti</option>
+                            <option value="Gao">Gao</option>
+                            <option value="Tombouctou">Tombouctou</option>
                         </select>
                     </div>
                 </div>
@@ -112,16 +113,16 @@
             <div class="col-xl-6 col-lg-6 col-md-12">
                 <div class="at-about-col at-col-default-mar">
                     <div class="at-about-title">
-                        <h1>AGEPIF <br><span>Immobilier de Prestige</span></h1>
-                        <h6>Votre partenaire de confiance</h6>
+                        <h1>AGEPIF<br><span>Agence de Gestion du Patrimoine Immobilier et Foncier</span></h1>
+                        <h6>Votre partenaire de confiance au Mali</h6>
                     </div>
-                    <p>AGEPIF est une agence immobilière de premier plan en Côte d'Ivoire. Forts de notre expertise et de notre professionnalisme, nous accompagnons nos clients dans tous leurs projets immobiliers.</p>
-                    <p>Notre mission est de vous offrir un service personnalisé et de qualité, que vous soyez à la recherche d'un bien à acheter, à louer, ou que vous souhaitiez vendre ou mettre en location votre propriété.</p>
+                    <p>AGEPIF est une agence spécialisée dans la gestion du patrimoine immobilier et foncier basée à Bamako, Mali. Nous vous accompagnons dans vos projets immobiliers, de la vente à la gestion locative, en passant par le BTP et les forages.</p>
+                    <p>Notre mission est de vous offrir un accompagnement global qui simplifie vos projets : accompagnement à la vente, facilitation de l'acquisition, gestion locative, suivi des travaux BTP, conception de plans 2D/3D, réalisation et réhabilitation de pompes et forages.</p>
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="at-about-col animated fadeInRightShort slow delay-250">
-                    <img src="{{ asset('assets/images/about/1.png') }}" alt="À propos AGEPIF">
+                    <img src="{{ asset('assets/images/about/1.png') }}" alt="À propos AGEPIF Mali">
                 </div>
             </div>
         </div>
@@ -142,7 +143,7 @@
             <div class="at-Call-right-inside">
                 <h2>Nous sommes prêts à vous recevoir</h2>
                 <div class="at-short-line"></div>
-                <h3><span>+225 01 23 45 67</span></h3>
+                <h3><span>+223 79 13 13 95</span></h3>
             </div>
         </div>
     </div>
@@ -159,12 +160,12 @@
                     <div class="at-heading-under-line">
                         <div class="at-heading-inside-line"></div>
                     </div>
-                    <p>Découvrez notre sélection de biens d'exception disponibles à la vente et à la location</p>
+                    <p>Découvrez notre sélection de biens d'exception disponibles à la vente et à la location au Mali</p>
                 </div>
             </div>
         </div>
         <div class="row animatedParent animateOnce">
-            @foreach($featuredProperties as $property)
+            @forelse($featuredProperties as $property)
             <div class="col-md-4 col-sm-6">
                 <div class="at-property-item at-col-default-mar animated fadeInUpShort slow">
                     <div class="at-property-img">
@@ -189,11 +190,15 @@
                     </div>
                     <div class="at-property-location">
                         <h4><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('properties.show', $property->slug) }}">{{ Str::limit($property->title, 30) }}</a></h4>
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $property->city }}, {{ $property->neighborhood ?? 'Côte d\'Ivoire' }}</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $property->city }}, {{ $property->neighborhood ?? 'Mali' }}</p>
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12 text-center">
+                <p>Aucun bien en vedette pour le moment.</p>
+            </div>
+            @endforelse
         </div>
         <div class="col-md-12 col-sm-12 text-center">
             <a class="btn btn-default hvr-bounce-to-right" href="{{ route('properties.index') }}" role="button">Tous nos biens</a>
@@ -202,79 +207,79 @@
 </section>
 <!-- Property End -->
 
-<!-- Blog start from here -->
-<section class="at-blog-sec">
+<!-- Services Section -->
+<section class="at-service-sec">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="at-sec-title at-sec-title-left">
-                    <h2>Notre <span>Blog</span></h2>
+            <div class="col-lg-12">
+                <div class="at-sec-title">
+                    <h2>Nos <span>Services</span></h2>
                     <div class="at-heading-under-line">
                         <div class="at-heading-inside-line"></div>
                     </div>
-                    <p>Conseils et actualités du marché immobilier en Côte d'Ivoire</p>
+                    <p>Un accompagnement global pour tous vos projets immobiliers</p>
                 </div>
             </div>
         </div>
-        <div class="row animatedParent animateOnce">
+        <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="at-blog-box at-col-default-mar animated fadeInUpShort slow">
-                    <div class="at-blog-img">
-                        <img src="{{ asset('assets/images/blog/1.jpg') }}" alt="Conseils immobiliers">
-                        <div class="at-blog-date">
-                            <ul>
-                                <li><i class="icofont icofont-businessman"></i><a href="#">AGEPIF</a></li>
-                                <li><i class="icofont icofont-calendar"></i><a href="#">{{ date('F d, Y') }}</a></li>
-                            </ul>
-                        </div>
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="icofont icofont-ui-home"></i>
                     </div>
-                    <div class="at-blog-content">
-                        <h4><a href="#">Comment acheter un bien immobilier en Côte d'Ivoire</a></h4>
-                        <p>Guide complet pour les acheteurs : les étapes à suivre, les documents nécessaires et les pièges à éviter.</p>
-                        <a class="btn btn-default hvr-bounce-to-right" href="#" role="button">Lire la suite</a>
-                    </div>
+                    <h4>Vente & Acquisition</h4>
+                    <p>Accompagnement à la vente et facilitation de l'acquisition de biens immobiliers.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="at-blog-box at-col-default-mar animated fadeInUpShort slow delay-250">
-                    <div class="at-blog-img">
-                        <img src="{{ asset('assets/images/blog/2.jpg') }}" alt="Location immobilière">
-                        <div class="at-blog-date">
-                            <ul>
-                                <li><i class="icofont icofont-businessman"></i><a href="#">AGEPIF</a></li>
-                                <li><i class="icofont icofont-calendar"></i><a href="#">{{ date('F d, Y', strtotime('-15 days')) }}</a></li>
-                            </ul>
-                        </div>
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="icofont icofont-key"></i>
                     </div>
-                    <div class="at-blog-content">
-                        <h4><a href="#">Les avantages de la location meublée</a></h4>
-                        <p>Découvrez pourquoi la location meublée est de plus en plus prisée par les investisseurs et les locataires.</p>
-                        <a class="btn btn-default hvr-bounce-to-right" href="#" role="button">Lire la suite</a>
-                    </div>
+                    <h4>Gestion Locative</h4>
+                    <p>Gestion complète de la location et mise en location de vos biens.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="at-blog-box at-col-default-mar animated fadeInUpShort slow delay-500">
-                    <div class="at-blog-img">
-                        <img src="{{ asset('assets/images/blog/3.jpg') }}" alt="Investissement immobilier">
-                        <div class="at-blog-date">
-                            <ul>
-                                <li><i class="icofont icofont-businessman"></i><a href="#">AGEPIF</a></li>
-                                <li><i class="icofont icofont-calendar"></i><a href="#">{{ date('F d, Y', strtotime('-30 days')) }}</a></li>
-                            </ul>
-                        </div>
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="icofont icofont-building-alt"></i>
                     </div>
-                    <div class="at-blog-content">
-                        <h4><a href="#">Investir dans l'immobilier : les clés du succès</a></h4>
-                        <p>Les meilleures stratégies pour réussir votre investissement immobilier en Côte d'Ivoire.</p>
-                        <a class="btn btn-default hvr-bounce-to-right" href="#" role="button">Lire la suite</a>
+                    <h4>BTP & Rénovation</h4>
+                    <p>Suivi et contrôle des travaux, rénovation et réhabilitation.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="icofont icofont-ruler-pencil"></i>
                     </div>
+                    <h4>Conception 2D/3D</h4>
+                    <p>Conception de plans 2D et 3D pour vos projets de construction.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="icofont icofont-water-drop"></i>
+                    </div>
+                    <h4>Forage & Pompe</h4>
+                    <p>Réalisation et réhabilitation de pompes et conception de forages.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="at-service-item">
+                    <div class="at-service-icon">
+                        <i class="fa fa-calculator"></i>
+                    </div>
+                    <h4>Estimation</h4>
+                    <p>Estimation précise de vos biens immobiliers.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End -->
+<!-- Services End -->
 
 <!-- Newsletter start from here -->
 <section class="at-newsletter-sec jarallax at-over-layer-black">
@@ -282,7 +287,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-sm-8">
                 <h2>Newsletter <span>AGEPIF</span></h2>
-                <p>Recevez nos dernières offres et actualités immobilières</p>
+                <p>Recevez nos dernières offres et actualités immobilières au Mali</p>
                 <form class="input-group" action="#" method="POST">
                     @csrf
                     <input type="email" class="form-control" placeholder="Votre email" required>
@@ -297,29 +302,108 @@
 <!-- Newsletter End -->
 @endsection
 
+@push('styles')
+<style>
+    .at-service-sec {
+        padding: 60px 0;
+        background: #f8f9fa;
+    }
+    .at-service-item {
+        text-align: center;
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        background: white;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .at-service-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .at-service-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        background: #ffd700;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+    }
+    .at-service-item:hover .at-service-icon {
+        background: #1a2a3a;
+    }
+    .at-service-icon i {
+        font-size: 40px;
+        color: #1a2a3a;
+    }
+    .at-service-item:hover .at-service-icon i {
+        color: #ffd700;
+    }
+    .at-service-item h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #1a2a3a;
+    }
+    .at-service-item p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+    .at-sec-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .at-sec-title h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a2a3a;
+    }
+    .at-sec-title h2 span {
+        color: #ffd700;
+    }
+    .at-heading-under-line {
+        width: 60px;
+        height: 3px;
+        background: #ffd700;
+        margin: 15px auto;
+        position: relative;
+    }
+    .at-heading-inside-line {
+        display: none;
+    }
+</style>
+@endpush
+
 @push('scripts')
 <script>
     $(document).ready(function() {
         // Flexslider initialization
-        $('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: "thumbnails",
-            directionNav: true,
-            slideshowSpeed: 5000,
-            animationSpeed: 600
-        });
+        if ($('.flexslider').length > 0) {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails",
+                directionNav: true,
+                slideshowSpeed: 5000,
+                animationSpeed: 600
+            });
+        }
 
         // Price range slider
-        $(".slider-range").slider({
-            range: true,
-            min: 0,
-            max: 500000000,
-            values: [0, 500000000],
-            slide: function(event, ui) {
-                $(".amount").val(ui.values[0] + " FCFA - " + ui.values[1] + " FCFA");
-            }
-        });
-        $(".amount").val($(".slider-range").slider("values", 0) + " FCFA - " + $(".slider-range").slider("values", 1) + " FCFA");
+        if ($(".slider-range").length > 0) {
+            $(".slider-range").slider({
+                range: true,
+                min: 0,
+                max: 500000000,
+                values: [0, 500000000],
+                slide: function(event, ui) {
+                    $(".amount").val(ui.values[0] + " FCFA - " + ui.values[1] + " FCFA");
+                }
+            });
+            $(".amount").val($(".slider-range").slider("values", 0) + " FCFA - " + $(".slider-range").slider("values", 1) + " FCFA");
+        }
     });
 </script>
 @endpush

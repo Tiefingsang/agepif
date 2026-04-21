@@ -61,23 +61,13 @@
                 <div class="col-md-12">
                     <div class="brand-carousel" data-slick='{"slidesToShow": 6, "slidesToScroll": 1}'>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/1.jpg') }}" alt="Partenaire"></a>
+                            <a href="http://egs-mali.com" target="_blank" rel="noopener noreferrer"><img src="{{ asset('assets/images/partenaire/egs.jpg') }}" alt="Partenaire"></a>
                         </div>
                         <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/2.jpg') }}" alt="Partenaire"></a>
+                            <a ></a>
+                            <a href="http://masadigitale.com" target="_blank" rel="noopener noreferrer""><img src="{{ asset('assets/images/partenaire/Masadigitale.png') }}" alt="Partenaire"></a>
                         </div>
-                        <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/3.jpg') }}" alt="Partenaire"></a>
-                        </div>
-                        <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/4.jpg') }}" alt="Partenaire"></a>
-                        </div>
-                        <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/5.jpg') }}" alt="Partenaire"></a>
-                        </div>
-                        <div class="item">
-                            <a href="#"><img src="{{ asset('assets/images/brand/6.jpg') }}" alt="Partenaire"></a>
-                        </div>
+
                     </div>
                 </div>
             </div>

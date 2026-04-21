@@ -86,14 +86,14 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="at-service-item">
-                    <div class="at-service-icon">
-                        <i class="icofont icofont-estate"></i>
-                    </div>
-                    <h4>Estimation gratuite</h4>
-                    <p>Estimation gratuite et sans engagement de votre bien par nos experts immobiliers.</p>
-                </div>
-            </div>
+    <div class="at-service-item">
+        <div class="at-service-icon">
+            <i class="fa fa-calculator"></i>
+        </div>
+        <h4>Estimation gratuite</h4>
+        <p>Estimation gratuite et sans engagement de votre bien par nos experts immobiliers.</p>
+    </div>
+</div>
         </div>
     </div>
 </section>

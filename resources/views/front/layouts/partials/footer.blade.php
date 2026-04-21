@@ -7,13 +7,13 @@
                         <img src="{{ asset('assets/images/footer-logo.png') }}" alt="AGEPIF">
                     </div>
                     <hr>
-                    <p>AGEPIF est une agence immobilière de premier plan en Côte d'Ivoire. Nous vous accompagnons dans vos projets immobiliers avec professionnalisme et transparence.</p>
+                    <p>AGEPIF est une Agence de Gestion du Patrimoine Immobilier et Foncier basée à Bamako, Mali. Nous vous accompagnons dans vos projets immobiliers, de la vente à la gestion locative, en passant par le BTP et les forages.</p>
                     <div class="at-social text-left">
                         <a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/22379131395" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -26,28 +26,25 @@
                     <ul>
                         <li><a href="{{ route('home') }}">Accueil</a></li>
                         <li><a href="{{ route('about') }}">À propos</a></li>
+                        <li><a href="{{ route('services') }}">Nos services</a></li>
                         <li><a href="{{ route('properties.index') }}">Nos biens</a></li>
-                        <li><a href="{{ route('properties.index', ['transaction_type' => 'sale']) }}">Vente</a></li>
-                        <li><a href="{{ route('properties.index', ['transaction_type' => 'rent']) }}">Location</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="at-footer-Tag-col at-col-default-mar">
-                    <h4>Catégories</h4>
+                    <h4>Nos services</h4>
                     <div class="at-heading-under-line">
                         <div class="at-heading-inside-line"></div>
                     </div>
                     <div class="at-tag-group clearfix">
-                        @php
-                            $categories = App\Models\Category::where('is_active', true)->limit(8)->get();
-                        @endphp
-                        @foreach($categories as $category)
-                            <a href="{{ route('properties.index', ['category' => $category->slug]) }}" class="hvr-bounce-to-right at-bg-hvr">
-                                {{ $category->name }}
-                            </a>
-                        @endforeach
+                        <a href="{{ route('services') }}#vente" class="hvr-bounce-to-right at-bg-hvr">Vente immobilière</a>
+                        <a href="{{ route('services') }}#acquisition" class="hvr-bounce-to-right at-bg-hvr">Acquisition</a>
+                        <a href="{{ route('services') }}#location" class="hvr-bounce-to-right at-bg-hvr">Gestion locative</a>
+                        <a href="{{ route('services') }}#btp" class="hvr-bounce-to-right at-bg-hvr">BTP & Rénovation</a>
+                        <a href="{{ route('services') }}#forage" class="hvr-bounce-to-right at-bg-hvr">Forage & Pompe</a>
+                        <a href="{{ route('services') }}#conception" class="hvr-bounce-to-right at-bg-hvr">Conception 2D/3D</a>
                     </div>
                 </div>
             </div>
@@ -59,9 +56,9 @@
                     </div>
                     <div class="at-gallery clearfix">
                         <ul class="at-contact-list">
-                            <li><i class="fa fa-map-marker"></i> Abidjan, Côte d'Ivoire</li>
-                            <li><i class="fa fa-phone"></i> <a href="tel:+22501234567">+225 01 23 45 67</a></li>
-                            <li><i class="fa fa-whatsapp"></i> <a href="https://wa.me/22501234567" target="_blank">+225 01 23 45 67</a></li>
+                            <li><i class="fa fa-map-marker"></i> Bamako, Mali</li>
+                            <li><i class="fa fa-phone"></i> <a href="tel:+22379131395">+223 79 13 13 95</a></li>
+                            <li><i class="fa fa-whatsapp"></i> <a href="https://wa.me/22379131395" target="_blank">+223 79 13 13 95</a></li>
                             <li><i class="fa fa-envelope"></i> <a href="mailto:contact@agepif.com">contact@agepif.com</a></li>
                             <li><i class="fa fa-clock-o"></i> Lun - Sam: 8h - 18h</li>
                         </ul>
@@ -77,7 +74,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright © {{ date('Y') }} <a href="{{ route('home') }}">AGEPIF Immobilier</a> Tous droits réservés</p>
+                <p>Copyright © {{ date('Y') }} <a href="{{ route('home') }}">AGEPIF - Agence de Gestion du Patrimoine Immobilier et Foncier</a> Tous droits réservés</p>
             </div>
         </div>
     </div>

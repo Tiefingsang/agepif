@@ -89,9 +89,9 @@ Route::post('/logout', function (\Illuminate\Http\Request $request) {
 })->name('logout');
 
 // Route d'inscription (si vous voulez permettre l'inscription)
-Route::get('/register', function () {
+/* Route::get('/register', function () {
     return view('auth.register');
-})->name('register');
+})->name('register'); */
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
     $validated = $request->validate([

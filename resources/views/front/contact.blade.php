@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Contact - AGEPIF Immobilier')
+@section('title', 'Contact - AGEPIF | Agence de Gestion du Patrimoine Immobilier et Foncier - Mali')
 
 @section('content')
 <!-- Inner page heading start -->
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF">
+                <img src="{{ asset('assets/images/title.png') }}" alt="AGEPIF Mali">
             </div>
         </div>
     </div>
@@ -120,25 +120,25 @@
                 </div>
                 <div class="at-info-box at-col-default-mar">
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <p>+225 01 23 45 67</p>
+                    <p>+223 79 13 13 95</p>
                 </div>
                 <div class="at-info-box at-col-default-mar">
                     <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    <p>+225 01 23 45 67</p>
+                    <p>+223 79 13 13 95</p>
                 </div>
                 <div class="at-info-box at-col-default-mar">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>Abidjan, Côte d'Ivoire</p>
+                    <p>Bamako, Mali</p>
                 </div>
                 <div class="at-info-box at-col-default-mar">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     <p>Lundi - Vendredi: 8h00 - 18h00<br>Samedi: 9h00 - 13h00</p>
                 </div>
 
-                <!-- Carte Google Maps -->
+                <!-- Carte Google Maps - Mali -->
                 <div class="at-info-box at-col-default-mar">
                     <iframe
-                        src="https://maps.google.com/maps?q=Abidjan,%20C%C3%B4te%20d'Ivoire&output=embed"
+                        src="https://maps.google.com/maps?q=Bamako,%20Mali&output=embed"
                         width="100%"
                         height="250"
                         style="border:0; border-radius: 8px;"
